@@ -1,1 +1,0 @@
-docker run --restart always --name dropboxalert -p80:80 -d dropboxalert
