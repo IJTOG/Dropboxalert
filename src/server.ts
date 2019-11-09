@@ -4,7 +4,7 @@ import path from "path";
 
 // port is now available to the Node.js runtime
 // as if it were an environment variable
-const port = process.env.SERVER_PORT || 3001;
+const port = process.env.SERVER_PORT || 80;
 
 const setupRoutes = (App: express.Application) => {
   const APP_DIR = `${__dirname}/component`;
