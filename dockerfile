@@ -9,6 +9,5 @@ USER node
 
 COPY /src /home/node/app/src
 RUN npm install
-RUN npm build
 
-CMD [ "npm","run", "start" ]
+CMD [ "npm","run", "dev" ]
