@@ -1,14 +1,14 @@
-FROM node:10.15.0
+FROM node:boron
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /usr/src/app
 
-WORKDIR /home/node/app
-COPY *.json ./
+WORKDIR /usr/src/app
 
+COPY . ./usr/src/app
 USER node
 
 COPY /src /home/node/app/src
 RUN npm install
 RUN npm build
 
-CMD [ "npm","run", "start" ]
+CMD [ "npm", "start" ]
