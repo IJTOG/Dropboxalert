@@ -7,9 +7,5 @@ const config = {
 };
 
 export function setup(router) {
-  router.get("/", controllers.getHello).post(
-    "/webhook",
-    // line.middleware(config),
-    controllers.webhook
-  );
+  router.get("/", controllers.getHello).post("/webhook", controllers.webhook);
 }
