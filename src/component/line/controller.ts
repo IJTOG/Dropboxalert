@@ -5,7 +5,7 @@ const userController = {
     res.send("reply bot");
   },
   async webhook(req, res) {
-    console.log("Hello");
+    console.log("Hellooooooooooo");
     let token = req.body.events[0].replyToken;
     let headers = {
       "Content-Type": "application/json",
@@ -22,9 +22,9 @@ const userController = {
     };
     let res2 = await axios.post(
       "https://api.line.me/v2/bot/message/reply",
-      data,
+      { ...data },
       {
-        headers: headers
+        headers
       }
     );
     console.log(res2);
