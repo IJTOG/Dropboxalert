@@ -20,16 +20,14 @@ const userController = {
         }
       ]
     };
-    axios
-      .post("https://api.line.me/v2/bot/message/reply", data, {
+    let res2 = await axios.post(
+      "https://api.line.me/v2/bot/message/reply",
+      data,
+      {
         headers: headers
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      }
+    );
+    console.log(res2);
     res.sendStatus(200);
   }
 };
