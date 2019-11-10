@@ -22,7 +22,7 @@ const userController = {
     };
     let res2 = await axios.post(
       "https://api.line.me/v2/bot/message/reply",
-      { ...data },
+      data,
       {
         headers
       }
