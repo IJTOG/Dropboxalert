@@ -1,13 +1,13 @@
 FROM node:10.15.0
 
-RUN mkdir -p /usr/src/app/node_modules && chown -R node:node /usr/src/app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 
 COPY *.json ./
 
 USER node
-COPY . ./usr/src/app
+COPY . ./home/node/app
 
 RUN npm install
 RUN npm build
