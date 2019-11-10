@@ -4,6 +4,7 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
+COPY *.json ./
 COPY . ./usr/src/app
 USER node
 
