@@ -9,7 +9,7 @@ COPY *.json ./
 USER node
 COPY . ./home/node/app
 
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn build
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
