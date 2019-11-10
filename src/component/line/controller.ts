@@ -12,7 +12,7 @@ const userController = {
     res.send("reply bot");
   },
   async webhook(req, res) {
-    res.status(200);
+    res.sendStatus(200);
     // Promise.all(req.body.events.map(this.handleEvent)).then(result =>
     //   res.json(result)
     // );
