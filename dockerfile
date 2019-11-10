@@ -7,7 +7,6 @@ WORKDIR /usr/src/app
 COPY . ./usr/src/app
 USER node
 
-COPY /src /home/node/app/src
 RUN npm install
 RUN npm build
 
