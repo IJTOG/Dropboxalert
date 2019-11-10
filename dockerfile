@@ -7,9 +7,9 @@ WORKDIR /home/node/app
 COPY *.json ./
 
 USER node
-COPY . ./home/node/app
+COPY /src /home/node/app/src
 
-RUN yarn install
-RUN yarn build
+RUN npm install
+RUN npm run build
 
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
