@@ -1,4 +1,3 @@
-import { Client } from "@line/bot-sdk";
 import axios from "axios";
 
 const userController = {
@@ -6,6 +5,7 @@ const userController = {
     res.send("reply bot");
   },
   async webhook(req, res) {
+    console.log(req.body.events[0].replyToken);
     let token = req.body.events[0].replyToken;
     let headers = {
       "Content-Type": "application/json",
