@@ -10,6 +10,6 @@ USER node
 COPY . ./home/node/app
 
 RUN npm install
-RUN npm build
+RUN npm run build
 
 CMD [ "npm", "start" ]
