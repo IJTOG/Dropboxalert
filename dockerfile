@@ -1,6 +1,6 @@
 FROM node:boron
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/app/node_modules && chown -R node:node /usr/src/app
 
 WORKDIR /usr/src/app
 
