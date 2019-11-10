@@ -5,7 +5,7 @@ const userController = {
     res.send("reply bot");
   },
   async webhook(req, res) {
-    console.log(req.body.events[0].replyToken);
+    console.log("Hello");
     let token = req.body.events[0].replyToken;
     let headers = {
       "Content-Type": "application/json",
