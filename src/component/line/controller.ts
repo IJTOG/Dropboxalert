@@ -1,6 +1,6 @@
 const userController = {
   async getById(req, res) {
-    res.status(200).json({ name: "Got" });
+    res.send("<h1>เข้ามาส่องควยไรสัส</h1>");
   },
   async test(req, res) {
     res.redirect("/home");
