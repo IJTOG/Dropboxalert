@@ -10,8 +10,8 @@ const setupRoutes = (App: express.Application) => {
   const APP_DIR = `${__dirname}/component`;
   const features = fs
     .readdirSync(APP_DIR)
-    .filter(file => fs.statSync(`${APP_DIR}/${file}`).isDirectory());
-  features.forEach(feature => {
+    .filter((file) => fs.statSync(`${APP_DIR}/${file}`).isDirectory());
+  features.forEach((feature) => {
     const router = express.Router();
     const routes = require(`${APP_DIR}/${feature}/routes`);
     routes.setup(router);
