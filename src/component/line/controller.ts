@@ -4,6 +4,8 @@ const userController = {
   async getHello(req, res) {
     res.send("reply bot");
   },
+
+  // Uc9dadea9b756cc23c8a1d85e45e7e553 userID
   async webhook(req, res) {
     console.log(req.body.events[0].source.userId);
     let token = req.body.events[0].replyToken;
