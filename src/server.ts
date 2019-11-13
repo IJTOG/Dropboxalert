@@ -12,7 +12,7 @@ try {
     useNewUrlParser: true,
     useCreateIndex: true
   });
-  console.log("test");
+  console.log("Connect DB success");
 } catch (err) {
   console.log(err);
 }
