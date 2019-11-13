@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 // as if it were an environment variable
 const port = process.env.SERVER_PORT || 3001;
 try {
-  mongoose.connect("mongodb://167.71.206.162:27017/dropboxalert", {
+  mongoose.connect("mongodb://167.71.206.1622:27017/dropboxalert", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
