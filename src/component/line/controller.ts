@@ -12,7 +12,7 @@ const userController = {
     const EventText = req.body.events[0].message.text;
     // const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
     // let EventText = "#reset";
-    let data = await User.findOne({ lineId: userID });
+    let data: any = await User.findOne({ lineId: userID });
     // let token = req.body.events[0].replyToken;
     let headers = {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const userController = {
         ]
       };
     } else if (EventText === "#notification") {
-      await User.update({ lineId: userID }, { status: !data.status });
+      await User.updateOne({ lineId: userID }, { status: !data.status });
       msg = {
         to: userID,
         messages: [

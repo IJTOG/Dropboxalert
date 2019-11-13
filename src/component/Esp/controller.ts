@@ -5,7 +5,7 @@ import moment from "moment";
 const userController = {
   async addById(req, res) {
     try {
-      let data = await User.findOneAndUpdate(
+      let data: any = await User.findOneAndUpdate(
         { "Iotlist.Iotname": req.params.id },
         {
           $inc: { "Iotlist.$.total": 1 },

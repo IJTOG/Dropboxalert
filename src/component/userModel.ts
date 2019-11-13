@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-let userSchema = mongoose.Schema({
+let userSchema: Schema = new Schema({
   name: { type: String },
   status: { type: Boolean, required: true },
   lineId: { type: String, required: true },
