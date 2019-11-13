@@ -1,10 +1,18 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
+import mongoose from "mongoose";
 
 // port is now available to the Node.js runtime
 // as if it were an environment variable
 const port = process.env.SERVER_PORT || 3001;
+
+mongoose.connect("mongodb://localhost/bank", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
+mongoose.Promise = global.Promise;
 
 const setupRoutes = (App: express.Application) => {
   const APP_DIR = `${__dirname}/component`;
