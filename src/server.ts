@@ -33,6 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+app.use("/", (req, res) => res.send("<h1>ควยไรแอ๊ม</h1>"));
 setupRoutes(app);
 
 // start the Express server
