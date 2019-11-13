@@ -1,24 +1,17 @@
-// let A = {
-//   name: "A",
-//   userId: "",
-//   Iotlist: [
-//     {
-//       IotId: "",
-//       startDate: "",
-//       endDate: "",
-//       currentDate: "",
-//       total: ""
-//     }
-//   ]
-// };
-
 import mongoose from "mongoose";
 
 let userSchema = mongoose.Schema({
-  firstname: { type: String, required: true },
-  lastname: String,
-  age: { type: Number, min: 1, max: 100, default: 15 },
-  created_date: { type: Date, default: Date.now }
+  name: { type: String },
+  userId: { type: String, required: true },
+  Iotlist: [
+    {
+      IotId: { type: String, required: true },
+      startDate: { type: Date, required: true },
+      endDate: { type: Date, required: true },
+      currentDate: { type: Date, default: Date.now },
+      total: { type: Number,min: 1, max: 1000, required: true }
+    }
+  ]
 });
 
 let User = mongoose.model("Users", userSchema);

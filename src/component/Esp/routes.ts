@@ -1,4 +1,4 @@
 import controllers from "./controller";
 export function setup(router) {
-  router.get("/:id", controllers.getById).post("/test", controllers.test);
+  router.get("/:id", controllers.addById);
 }

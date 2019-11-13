@@ -1,9 +1,7 @@
 const userController = {
-  async getById(req, res) {
-    // res.status(200).json(getUserById(parseInt(req.params.id)));
-  },
-  async test(req, res) {
-    res.redirect("/home");
+  async addById(req, res) {
+    console.log(req.params.id)
+    res.status(200).json({name:"2"})
   }
 };
 export default userController;
