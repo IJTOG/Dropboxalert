@@ -10,7 +10,6 @@ const userController = {
   async webhook(req, res) {
     const userID = req.body.events[0].source.userId;
     const EventText = req.body.events[0].message.text;
-    console.log(userID + " " + EventText);
     // const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
     // let EventText = "#reset";
     let headers = {
@@ -20,8 +19,8 @@ const userController = {
     let msg: any = {};
     try {
       let data: any = await User.findOne({ lineId: userID });
-      // let token = req.body.events[0].replyToken;
       if (EventText === "#total") {
+        console.log(data);
         msg = {
           to: userID,
           messages: [

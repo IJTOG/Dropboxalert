@@ -8,9 +8,10 @@ import mongoose from "mongoose";
 const port = process.env.SERVER_PORT || 3001;
 try {
   mongoose.connect("mongodb://167.71.206.162:27017/dropboxalert", {
-    // useUnifiedTopology: true,
+    useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    connectTimeoutMS: 10000
   });
   console.log("Connect DB success");
 } catch (err) {
