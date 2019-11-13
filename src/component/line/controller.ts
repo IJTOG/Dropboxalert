@@ -8,10 +8,10 @@ const userController = {
   },
   // Uc9dadea9b756cc23c8a1d85e45e7e553 userID
   async webhook(req, res) {
-    // const userID = req.body.events[0].source.userId;
-    // const EventText = req.body.events[0].message.text;
-    const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
-    let EventText = "#reset";
+    const userID = req.body.events[0].source.userId;
+    const EventText = req.body.events[0].message.text;
+    // const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
+    // let EventText = "#reset";
     let data = await User.findOne({ lineId: userID });
     // let token = req.body.events[0].replyToken;
     let headers = {
@@ -47,16 +47,13 @@ const userController = {
         ]
       };
     } else if (EventText === "#reset") {
-      await User.findOneAndUpdate(
-        { lineId: userID },
-        { "Iotlist.$.startDate": new Date() }
+      await User.updateOne(
+        { lineId: userID, "Iotlist.Iotname": data.Iotlist[0].Iotname },
+        {
+          "Iotlist.$.total": 0,
+          "Iotlist.$.startDate": new Date()
+        }
       );
-      // console.log(
-      //   await User.findOneAndUpdate(
-      //     { lineId: userID },
-      //     { "Iotlist.$.total": 1 }
-      //   )
-      // );
       msg = {
         to: userID,
         messages: [
@@ -68,7 +65,7 @@ const userController = {
             type: "text",
             text: `start at: ${moment(data.Iotlist[0].startDate)
               .local()
-              .format("LLL")}}`
+              .format("LLL")}`
           },
           {
             type: "text",
@@ -83,6 +80,7 @@ const userController = {
       await axios.post("https://api.line.me/v2/bot/message/push", msg, {
         headers
       });
+      console.log("success");
     } catch (err) {
       console.log(err);
     }
