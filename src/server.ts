@@ -11,7 +11,9 @@ try {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
-    connectTimeoutMS: 10000
+    socketTimeoutMS: 45000,
+    keepAlive: true,
+    reconnectTries: 10
   });
   console.log("Connect DB success");
 } catch (err) {
