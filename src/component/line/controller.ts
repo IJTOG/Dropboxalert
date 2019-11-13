@@ -10,6 +10,7 @@ const userController = {
   async webhook(req, res) {
     const userID = req.body.events[0].source.userId;
     const EventText = req.body.events[0].message.text;
+    console.log(userID + " " + EventText);
     // const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
     // let EventText = "#reset";
     let headers = {
