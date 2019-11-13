@@ -7,7 +7,7 @@ let userSchema = mongoose.Schema({
   Iotlist: [
     {
       Iotname: { type: String, required: true },
-      startDate: { type: Date, required: true },
+      startDate: { type: Date },
       currentDate: { type: Date },
       total: { type: Number, min: 1, max: 1000, required: true }
     }

@@ -18,7 +18,7 @@ const userController = {
           Authorization: `Bearer 3ip7P+o9dJjibvEcELBCfN5WQYH9EXyLgzK+qW5GXuA6b2MGHdlwRD8P8hom5LZd70CAd0AnhBhYtiKZGle1fcnaraSSfkEwGMqGh3vlfeN3firzOa9PSf8anFoMEfXgMtiuh55kYoUpOwFePCUSXgdB04t89/1O/w1cDnyilFU=`
         };
         let msg = {
-          to: req.body.events[0].source.userId,
+          to: data.lineId,
           messages: [
             {
               type: "text",
