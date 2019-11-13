@@ -7,11 +7,12 @@ import mongoose from "mongoose";
 // as if it were an environment variable
 const port = process.env.SERVER_PORT || 3001;
 
-mongoose.connect("mongodb://localhost/bank", {
+mongoose.connect("mongodb://localhost/dropboxalert", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true
 });
+mongoose.set("useFindAndModify", false);
 mongoose.Promise = global.Promise;
 
 const setupRoutes = (App: express.Application) => {

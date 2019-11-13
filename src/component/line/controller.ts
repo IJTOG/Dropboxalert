@@ -1,4 +1,5 @@
 import axios from "axios";
+import User from "../userModel";
 
 const userController = {
   async getHello(req, res) {
@@ -7,7 +8,9 @@ const userController = {
 
   // Uc9dadea9b756cc23c8a1d85e45e7e553 userID
   async webhook(req, res) {
-    console.log(req.body.events[0].source.userId);
+    console.log(
+      await User.findOne({ lineId: "Uc9dadea9b756cc23c8a1d85e45e7e553" })
+    );
     let token = req.body.events[0].replyToken;
     let headers = {
       "Content-Type": "application/json",
