@@ -6,13 +6,11 @@ import mongoose from "mongoose";
 // port is now available to the Node.js runtime
 // as if it were an environment variable
 const port = process.env.SERVER_PORT || 3001;
-setTimeout(function() {
-  mongoose.connect("mongodb://167.71.206.162:27017/dropboxalert", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true
-  });
-}, 60000);
+mongoose.connect("mongodb://167.71.206.162:27017/dropboxalert", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 let db = mongoose.connection;
 db.once("open", function() {
   console.log("Database Successfully connected");
