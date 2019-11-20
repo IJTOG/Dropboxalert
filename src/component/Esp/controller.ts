@@ -5,13 +5,14 @@ import moment from "moment";
 const userController = {
   async addById(req, res) {
     try {
-      let data: any = await User.findOneAndUpdate(
+      await User.update(
         { "Iotlist.Iotname": req.params.id },
         {
           $inc: { "Iotlist.$.total": 1 },
           "Iotlist.$.currentDate": new Date()
         }
       );
+      let data: any = await User.findOne({ "Iotlist.Iotname": req.params.id });
       if (data.status === true) {
         let headers = {
           "Content-Type": "application/json",
@@ -23,7 +24,7 @@ const userController = {
             {
               type: "text",
               text: `New mail added at ${moment(data.Iotlist[0].currentDate)
-                .local()
+                .utcOffset(7)
                 .format("LLL")}`
             }
           ]
@@ -33,7 +34,7 @@ const userController = {
         });
       }
     } catch (err) {
-      console.log("error");
+      console.log(err);
     }
     res.sendStatus(200);
   }
