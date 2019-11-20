@@ -20,7 +20,6 @@ const userController = {
     try {
       let data: any = await User.findOne({ lineId: userID });
       if (EventText === "#total") {
-        console.log(data);
         msg = {
           to: userID,
           messages: [
