@@ -10,7 +10,6 @@ const userController = {
   async webhook(req, res) {
     const userID = req.body.events[0].source.userId;
     const EventText = req.body.events[0].message.text;
-    console.log(userID);
     // const userID = "Uc9dadea9b756cc23c8a1d85e45e7e553";
     // let EventText = "#reset";
     let headers = {
@@ -31,6 +30,7 @@ const userController = {
             {
               type: "text",
               text: `The last time was ${moment(data.Iotlist[0].currentDate)
+                .utcOffset(7)
                 .local()
                 .format("LLL")}`
             }
@@ -65,12 +65,14 @@ const userController = {
             {
               type: "text",
               text: `start at: ${moment(data.Iotlist[0].startDate)
+                .utcOffset(7)
                 .local()
                 .format("LLL")}`
             },
             {
               type: "text",
               text: `to: ${moment()
+                .utcOffset(7)
                 .local()
                 .format("LLL")}`
             }
