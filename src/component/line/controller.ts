@@ -31,7 +31,6 @@ const userController = {
               type: "text",
               text: `The last time was ${moment(data.Iotlist[0].currentDate)
                 .utcOffset(7)
-                .local()
                 .format("LLL")}`
             }
           ]
@@ -66,14 +65,12 @@ const userController = {
               type: "text",
               text: `start at: ${moment(data.Iotlist[0].startDate)
                 .utcOffset(7)
-                .local()
                 .format("LLL")}`
             },
             {
               type: "text",
               text: `to: ${moment()
                 .utcOffset(7)
-                .local()
                 .format("LLL")}`
             }
           ]
